@@ -1,0 +1,38 @@
+/* 
+by Maisoon Falqi
+
+controling 5 servos by a 
+potentiometer at 90 degree
+*/
+
+#include <Servo.h>
+
+int var = 0;//variable to read from the analog
+
+Servo servo_3;//create servo objects
+Servo servo_5;
+Servo servo_9;
+Servo servo_10;
+Servo servo_11;
+
+void setup()
+{
+  servo_3.attach(3);//ensures each output to its servo
+  servo_5.attach(5);
+  servo_9.attach(9);
+  servo_10.attach(10);
+  servo_11.attach(11);
+}
+void loop()
+{ 
+  var=analogRead(7);
+  var=map(var,0,1023,0,90);
+  
+  servo_3.write(var);
+  servo_5.write(var);
+  servo_9.write(var);
+  servo_10.write(var);
+  servo_11.write(var);
+  
+  delay(15);
+}
